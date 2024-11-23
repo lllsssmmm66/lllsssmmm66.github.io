@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="content="width=device-width, initial-scale=1.0">
+  <title>元与均棋的答案之书</title>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    #answerBookCanvas {
+      width: 600px;
+      height: 700px;
+      background-color: black;
+      position: relative;
+    }
+
+    button {
+      width: 200px;
+      height: 32px;
+      border-radius: 16px;
+      background-color: #1C1C1C;
+      color: white;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+    }
+
+    #answer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -200px); 
+      width: 500px;
+      height: 190px;
+      font-size: 40px;
+      line-height: 65px;
+      color: #F9DBB3;
+      font-family: SimSun, sans-serif;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-align: center;
+    }
+
+    #explanation {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+      line-height: 26px;
+      color: white;
+      font-family: SimSun, sans-serif;
+      text-align: center;
+      width: 500px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="answerBookCanvas">
+    <button id="generateButton">---默念问题，点击此处---寻找属于你的答案</button>
+    <div id="answer"></div>
+    <div id="explanation">犹豫不决时，试试拿走一个来自小树和蒸迪的答案吧。</div>
+  </div>
+
+  <script>
+    const answers = [
+      "我不是这个世界的尺度，你也不是，他也不是",
+      "不好？改就是了，相信自己不会覆舟，哪怕长河汹涌",
+      "永远保持好奇心，愉快且柔软地去面对这个世界",
+      "生活不是天堂，也不是地狱，是无休止的搏斗",
+      "其实人只活一天，就是今天",
+      "不用成为大人",
+      "愿意去做就做吧",
+      "在开心中开心，在不开心时慢慢等待开心",
+      "抗住骑士，没有逆境的人生太无趣了",
+      "星星被误会了，我要替他证明",
+      "最好就是1900，不要变成2900或者5900",
+      "有偏差又如何，下次再修正",
+      "你在悲伤里待一会也没什么",
+      "不要被不属于自己的伤疤给困住",
+      "如果你觉得活着没意义的话，你就活着试试看，看看意义是什么",
+      "生活有时候就是个圈",
+      "开心是一天，不开心也是一天",
+      "坚持是退缩着犹豫着但要继续往前",
+      "你经历决定经历的人生",
+      "不要那么懒，其实还可以做的更好",
+      "该怎么着就怎么着",
+      "你看，这不都相遇了吗"
+    ];
+
+    const generateButton = document.getElementById('generateButton');
+    const answerDiv = document.getElementById('answer');
+    const explanationDiv = document.getElementById('explanation');
+
+    generateButton.addEventListener('click', function () {
+      const randomIndex = Math.floor(Math.random() * answers.length);
+      const randomAnswer = answers[randomIndex];
+
+      answerDiv.textContent = randomAnswer;
+      answerDiv.style.display = 'block';
+      explanationDiv.style.display = 'block';
+    });
+  </script>
+</body>
+
+</html>
+
+
